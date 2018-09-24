@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppComponent } from './app.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
@@ -18,9 +19,11 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
-  { path: 'books', component: BookListComponent },
-  { path: 'books/new', component: BookFormComponent },
-  { path: 'books/view/:id', component: SingleBookComponent },
+  { path: 'books', canActivate: [AuthGuardService], component: BookListComponent },
+  { path: 'books/new', canActivate: [AuthGuardService],component: BookFormComponent },
+  { path: 'books/view/:id', canActivate: [AuthGuardService],component: SingleBookComponent },
+  { path: '', redirectTo: 'books', pathMatch: 'full' },
+  { path: '**', redirectTo: 'books' }
 
 ];
 
