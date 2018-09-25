@@ -12,7 +12,6 @@ export class SingleBookComponent implements OnInit {
 
   book: Book;
 
-
   constructor(private route: ActivatedRoute,
               private booksService: BooksService,
               private router: Router) { }
@@ -25,6 +24,7 @@ export class SingleBookComponent implements OnInit {
         this.book = book;
       }
     );
+    
   }
 
   onBack() {
