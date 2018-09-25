@@ -24,7 +24,6 @@ export class SingleBookComponent implements OnInit {
         this.book = book;
       }
     );
-    
   }
 
   onBack() {
